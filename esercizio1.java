@@ -6,10 +6,11 @@ public class esercizio1 {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
         boolean ver = true;
-        
+
         String userName = "";
         String userPwd = "";
         int userId = 0;
+        // finche rilevo un errore continuo a chiedere l'input, ripartendo dall'userName
         while (ver == true) {
             ver = false;
             System.out.println("Enter name:");
@@ -23,27 +24,28 @@ public class esercizio1 {
                 if (userPwd.contains(userName)) {
                     System.out.println("pwd and name must differ");
                     ver = true;
-                }else{
+                } else {
                     System.out.println("Enter ID:");
                     userId = myObj.nextInt();
-                    if (userId < 1000 || userId > 9999) {
+                    if (userId < 100 || userId > 999) {
                         System.out.println("id must be 4 char long");
                         ver = true;
+                    }
                 }
-            }    
-        }
-        }
-        if (ver == false) {
-            System.out.println("username: " + userName);
-            //stampo un asterisco al posto di ogni carattere della pwd
-            System.out.print("pwd: ");
-            int i = userPwd.length();
-            while (i > 1) {
-                System.out.print("*");
-                i--;
             }
-            System.out.println("*");
-            System.out.println("username ID: " + userId);
         }
+        System.out.println("username: " + userName);
+
+        // stampo un asterisco al posto di ogni carattere della pwd
+        System.out.print("pwd: ");
+        int i = userPwd.length();
+        while (i > 1) {
+            System.out.print("*");
+            i--;
+        }
+        System.out.println("*");
+        
+        System.out.println("username ID: " + userId);
+
     }
 }
