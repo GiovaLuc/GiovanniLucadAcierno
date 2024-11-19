@@ -37,12 +37,24 @@ public class esercizio1 {
 
         // stampo un asterisco al posto di ogni carattere della pwd
         System.out.print("pwd: ");
-        int i = userPwd.length();
+        /*int i = userPwd.length();
+       
         while (i > 1) {
             System.out.print("*");
             i--;
+        };
+        
+        System.out.println("*");*/
+
+        /*for(int i = 0; i < userPwd.length(); i++){
+            System.out.print("*");
         }
-        System.out.println("*");
+        System.out.println("");*/
+
+        for(char lett: userPwd.toCharArray()){
+            System.out.println("*");
+        }
+        System.out.println("");
         
         System.out.println("username ID: " + userId);
 
