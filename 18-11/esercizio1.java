@@ -1,17 +1,16 @@
-
 import java.util.Scanner;
 
 public class esercizio1 {
 
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
-        boolean ver = true;
+        boolean ver;
 
         String userName = "";
         String userPwd = "";
         int userId = 0;
         // finche rilevo un errore continuo a chiedere l'input, ripartendo dall'userName
-        while (ver == true) {
+        do {
             ver = false;
             System.out.println("Enter name:");
             userName = myObj.nextLine();
@@ -21,7 +20,7 @@ public class esercizio1 {
             } else {
                 System.out.println("Enter pwd:");
                 userPwd = myObj.nextLine();
-                if (userPwd.contains(userName)) {
+                if (userPwd.equals(userName)) {
                     System.out.println("pwd and name must differ");
                     ver = true;
                 } else {
@@ -33,7 +32,7 @@ public class esercizio1 {
                     }
                 }
             }
-        }
+        }while (ver == true);
         System.out.println("username: " + userName);
 
         // stampo un asterisco al posto di ogni carattere della pwd

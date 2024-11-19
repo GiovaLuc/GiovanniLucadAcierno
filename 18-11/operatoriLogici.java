@@ -17,11 +17,11 @@ public class operatoriLogici {
             System.out.println("y is greater");
         }
         
-        int num = 3;
+        int num = 1;
         switch(num){
             case 1:
                 System.out.println("1");
-                break;
+                
             case 2:
                 System.out.println("2");
                 break;
