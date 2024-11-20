@@ -7,7 +7,7 @@ public class Calciatori {
         Scanner myScanStr = new Scanner(System.in);
         String nome;
         String ruolo;
-        
+
         Squadra squadra = new Squadra();
         int cmd;
 
@@ -18,7 +18,7 @@ public class Calciatori {
 
         myMenu.addOpt("1 Aggiungi Calciatore");
         myMenu.addOpt("2 Stampa Squadra");
-
+        myMenu.addOpt("3 Cerca Calciatore");
 
         while (true) {
             myMenu.printMenu();
@@ -30,9 +30,19 @@ public class Calciatori {
                     System.out.println("Inserisci ruolo");
                     ruolo = myScanStr.nextLine();
                     calciatore = new Calciatore(nome, ruolo);
-                    if(!squadra.cercaCalc(calciatore)){
+                    if (squadra.calciatori.size() < 13 && !squadra.cercaCalc(nome) && !squadra.cercaCalc(ruolo)) {
                         squadra.aggiungiCalc(calciatore);
+                    } else {
+                        System.out.println("Impossibile aggiungere");
                     }
+                    break;
+                case 2:
+                    Squadra.stampaSquadra();
+                    break;
+                case 3:
+                    System.out.println("Inserisci ricerca");
+                    String stringa = myScanStr.nextLine();
+                    System.out.println(squadra.cercaCalc(stringa));
                     break;
             }
         }
@@ -56,28 +66,34 @@ public class Calciatori {
         String nome;
         String ruolo;
 
-        public Calciatore(String nome, String ruolo){
+        public Calciatore(String nome, String ruolo) {
             this.nome = nome;
             this.ruolo = ruolo;
         }
-        
+
     }
 
     public static class Squadra {
-        Calciatore[] calciatori = new Calciatore[12];
-        int numCalc;
+        static ArrayList<Calciatore> calciatori = new ArrayList();
 
-        public void aggiungiCalc(Calciatore calciatore){
-            calciatori[numCalc] = calciatore;
+        public void aggiungiCalc(Calciatore calciatore) {
+            calciatori.add(calciatore);
         }
 
-        public boolean cercaCalc(Calciatore cercato){
-            for(Calciatore calciatore : calciatori){
-                if(cercato == calciatore){
+        public boolean cercaCalc(String stringa) {
+            for (Calciatore calciatore : calciatori) {
+                if (stringa.equals(calciatore.nome) || stringa.equals(calciatore.ruolo)) {
                     return true;
                 }
             }
             return false;
+        }
+
+        public static void stampaSquadra() {
+            for (Calciatore calciatore : calciatori) {
+                System.out.println("Nome: " + calciatore.nome + " Ruolo: " + calciatore.ruolo);
+            }
+
         }
     }
 }
