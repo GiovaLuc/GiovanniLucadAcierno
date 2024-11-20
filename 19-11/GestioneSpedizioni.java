@@ -20,17 +20,17 @@ public class GestioneSpedizioni {
         correctDel = getDeliveries(deliveries, 7, 2);
         printDeliveries(correctDel, myScan);
         while (cmd < 7) {
-        System.out.println("enter command:");
-        System.out.println("1 aggiungi spedizione");
-        System.out.println("2 stampa spedizioni");
-        System.out.println("3 stampa totale");
-        System.out.println("4 cerca spedizioni");
-        System.out.println("5 stima giorni");
-        System.out.println("6 cancella lista");
-        System.out.println("7 chiudi");
+            System.out.println("enter command:");
+            System.out.println("1 aggiungi spedizione");
+            System.out.println("2 stampa spedizioni");
+            System.out.println("3 stampa totale");
+            System.out.println("4 cerca spedizioni");
+            System.out.println("5 stima giorni");
+            System.out.println("6 cancella lista");
+            System.out.println("7 chiudi");
 
-        cmd = myScan.nextInt();
-        
+            cmd = myScan.nextInt();
+
             switch (cmd) {
                 case 1:
                     int[] add = new int[4];
@@ -62,10 +62,10 @@ public class GestioneSpedizioni {
                     break;
                 case 5:
                     System.out.println("giorni impiegati per 1000 penne blu:" + explore(deliveries, 1, 1000));
-                break;
+                    break;
                 case 6:
                     deliveries = new ArrayList<int[]>();
-                break;
+                    break;
             }
         }
         System.out.println("giorni impiegati per 1000 penne blu:" + explore(deliveries, 1, 1000));
