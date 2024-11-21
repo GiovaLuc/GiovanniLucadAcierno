@@ -8,12 +8,15 @@ public class Videoteca {
         Film nuovoFilm;
         Film cercaFilm;
 
+        //inserisco tre nuovi utenti e tre nuovi film
         nuovoUtente = new Utente(0, "aldo");
         utenti.add(nuovoUtente);
         nuovoUtente = new Utente(1, "giovanni");
         utenti.add(nuovoUtente);
         nuovoUtente = new Utente(2, "giacomo");
         utenti.add(nuovoUtente);
+
+        //aggiungere if film esiste copie++
         nuovoFilm = new Film("Tre uomini e una gamba", 1997);
         films.add(nuovoFilm);
         nuovoFilm = new Film("Cosi è la vita", 1998);
@@ -45,6 +48,7 @@ public class Videoteca {
     public static class Film{
         private String titolo;
         private int anno;
+        private int copieDisp;
 
         public Film(String titolo, int anno){
             this.titolo = titolo;
@@ -59,12 +63,20 @@ public class Videoteca {
             return this.anno;
         }
 
+        public int getCopieDisp(){
+            return this.copieDisp;
+        }
+
         public void setTitolo(String titolo){
             this.titolo = titolo;
         }
 
         public void setAnno(int anno){
             this.anno = anno;
+        }
+
+        public void setCopieDisp(int copie){
+            this.copieDisp = copie;
         }
         
         @Override
