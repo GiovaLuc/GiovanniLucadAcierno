@@ -23,6 +23,31 @@ public class Menu {
         }
     }
 
+    public class Ristorante{
+        private ArrayList<Piatto> piatti;
+
+        public void addPiatto(Piatto piatto){
+            piatti.add(piatto);
+        }
+
+        public void addValutazione(Piatto cercato, int val){
+            Piatto piatto = new Piatto();
+            if(piatti.indexOf(cercato) != -1){
+                piatti.get(piatti.indexOf(cercato)).addValutazione(val);;
+            };
+            
+        }
+    }
+
+    public class Piatto{
+        String nome;
+        ArrayList<Integer> valutazioni = new ArrayList();
+
+        public void addValutazione(int val){
+            valutazioni.add(val);
+        }
+    }
+
     public class Utente {
         private String nome;
         private String mail;
@@ -43,11 +68,19 @@ public class Menu {
             super(nome, email, soldi);
         }
 
+        public void addPiatto(Ristorante ristorante, Piatto piatto){
+            ristorante.addPiatto(piatto);
+        }
+
     }
 
     public class Critico extends Utente {
         public Critico(String nome, String email, float soldi) {
             super(nome, email, soldi);
+        }
+
+        public void addValutazione(Ristorante ristorante, Piatto piatto, int valutazione){
+            ristorante.addValutazione(piatto, valutazione);
         }
     }
 
